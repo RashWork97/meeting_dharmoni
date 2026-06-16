@@ -12,14 +12,19 @@
         <div className='bg-white p-8 rounded shadow-md w-full max-w-md'>
             <form method="POST" action="{{ route('login') }}">
                 @csrf
+
                 <div className='mb-4'>
-                    <label className='block text-gray-700 mb-2' htmlFor='username'>Username</label>
-                    <input className='w-full px-3 py-2 border rounded' type='text' id='username' placeholder='Enter your username' />
+                    <label className='block text-gray-700 mb-2' htmlFor='email'>Email</label>
+                    <input className='w-full px-3 py-2 border rounded' type='email' id='email' name='email' placeholder='Enter your email' />
                 </div>
+
                 <div className='mb-6'>
                     <label className='block text-gray-700 mb-2' htmlFor='password'>Password</label>
-                    <input className='w-full px-3 py-2 border rounded' type='password' id='password' placeholder='Enter your password' />
+                    <input className='w-full px-3 py-2 border rounded' type='password' id='password' name='password' placeholder='Enter your password' />
                 </div>
+
+
+                <span> Don't have an account? <a href="{{ route('register.page')}}" > Register Here </a>
                 <button className='w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-200' type='submit'>Login</button>
             </form>
         </div>

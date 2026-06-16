@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -24,12 +26,15 @@ class AuthController extends Controller
         // Validate the request data
         $request->validate([
             'email' => 'required|email',
-            'password' => 'required|string|min:6',
+            'password' => 'required',
         ]);
 
         // Attempt to authenticate the user
         if (auth()->attempt($request->only('email', 'password'))) {
-            return redirect()->intended('/home');
+
+            $request->session()->regenerate();
+
+            return redirect('/main');
         }
 
         return back()->withErrors(['email' => 'Invalid credentials.']);
@@ -38,18 +43,22 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         // Validate the request data
-        $request->validate([
+        $validated_data = $request->validate([
             'username' => 'required|string|max:255',
             'email' => 'required|email|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
 
         // Create the user
-        $user = User::create($request->only('username', 'email', 'password'));
+        $user = User::create([
+            'name'=> $validated_data['username'],
+            'email' => $validated_data['email'],
+            'password' => Hash::make($validated_data['password']),
+        ]);
 
         // Authenticate the user
         auth()->login($user);
 
-        return redirect()->intended('/home');
+        return redirect('main.home');
     }
 }
