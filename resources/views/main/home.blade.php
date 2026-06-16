@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D'harmoni App</title>
-</head>
-<body>
-    <h1> This is home page </h1>
-</body>
-</html>
+@extends('layouts.default')
+
+@section('header')
+    
+@endsection
+
+@section('main_content')
+    <h1> Meeting Room Booking </h1>
+@endsection
