@@ -8,6 +8,14 @@ Route::get('/main', function () {
     return view('main.home');
 });
 
+Route::get('/meetingRoom', function(){
+    return view('main.meetingRoom');
+});
+
+Route::get('/application', function(){
+    return view('main.application');
+});
+
 Route::get('/login', [AuthController::class, 'showLogin']) ->name('login.page');
 Route::get('/register', [AuthController::class, 'showRegister']) ->name('register.page');
 Route::post('/login', [AuthController::class, 'login']) ->name('login');

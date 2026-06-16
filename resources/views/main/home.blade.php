@@ -5,5 +5,7 @@
 @endsection
 
 @section('main_content')
-    <h1> Meeting Room Booking </h1>
+<br>
+<br>
+    <h1> Home page of meeting room </h1>
 @endsection

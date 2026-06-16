@@ -9,19 +9,16 @@
 </head>
 <body>
 
-
-    <header class='flex-none grid grid-cols-2 display-box text-gray-600 border border-lg bg-blue-950'>
+    <header>
         @yield('header')
-        <div>
-        <nav class="flex justify-between items-center p-4 bg-gray-800 text-white">
-            <ul class="flex items-center gap-6">
-                <li> Home </li>
-                <li> Meeting Room </li>
-                <li> Booking </li>
+        <nav class='bg-amber-950 grid grid-cols-2 flex-none'>
+            <ul class='text-amber-50'>
+                <li><a href="/main"> Home </a></li>
+                <li><a href="/meetingRoom"> Meeting Room </a></li>
+                <li><a href="/application"> Booking </a></li>
+                <li><a href="/login"> Logout </a></li>
             </ul>
-            <span class='item-right'> Log out </span>
         </nav>
-    </div>
     </header>
 
     <main>
