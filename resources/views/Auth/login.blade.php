@@ -10,7 +10,8 @@
         <h3 className='pr-12 text-4xl p-4'>Welcome to <span className='text-blue-400 font-bold'>D-System</span></h3>
 
         <div className='bg-white p-8 rounded shadow-md w-full max-w-md'>
-            <form>
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
                 <div className='mb-4'>
                     <label className='block text-gray-700 mb-2' htmlFor='username'>Username</label>
                     <input className='w-full px-3 py-2 border rounded' type='text' id='username' placeholder='Enter your username' />
