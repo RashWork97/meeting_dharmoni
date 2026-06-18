@@ -34,6 +34,7 @@
 
                 <button className='w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-200' type='submit'>Register</button>
             </form>
+            <span> Already have an account? <a href="{{ route('login.page')}}" > Login Here </a>
         </div>
     </div>
 </body>

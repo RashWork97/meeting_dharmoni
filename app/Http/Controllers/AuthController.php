@@ -56,9 +56,17 @@ class AuthController extends Controller
             'password' => Hash::make($validated_data['password']),
         ]);
 
-        // Authenticate the user
-        auth()->login($user);
+        // // Authenticate the user
+        // auth()->login($user);
 
-        return redirect('main.home');
+        return redirect('/login');
+    }
+
+    public function logout(Request $request){
+        auth()->logout();
+
+         $request->session()->invalidate();
+         $request->session()->regenerateToken();
+         return redirect('/login');
     }
 }

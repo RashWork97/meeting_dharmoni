@@ -24,9 +24,9 @@
                 </div>
 
 
-                <span> Don't have an account? <a href="{{ route('register.page')}}" > Register Here </a>
                 <button className='w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-200' type='submit'>Login</button>
             </form>
+            <span> Don't have an account? <a href="{{ route('register.page')}}" > Register Here </a>
         </div>
     </div>
 </body>
